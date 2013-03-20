@@ -1,5 +1,5 @@
-name    'openresty'
-version '0.0.1'
+name    'propertybase-openresty'
+version '0.1.0'
 author 'Leif Gensert'
 license 'MIT'
 summary 'Manifest to install openresty distribution of nginx'
