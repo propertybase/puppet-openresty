@@ -1,0 +1,7 @@
+name    'openresty'
+version '0.0.1'
+author 'Leif Gensert'
+license 'MIT'
+summary 'Manifest to install openresty distribution of nginx'
+description 'Installs the current openresty distribution from source'
+project_page 'http://openresty.org/'
