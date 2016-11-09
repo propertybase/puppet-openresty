@@ -8,6 +8,7 @@ class openresty::package {
   if ! defined(Package['perl']) { package { 'perl': ensure => installed, } }
   if ! defined(Package['wget']) { package { 'wget': ensure => installed, } }
 
+  
   exec { 'openresty::package::download_openresty':
     cwd     => '/tmp',
     command => "wget ${openresty::params::openresty_url} -O openresty.tar.gz",
@@ -17,6 +18,7 @@ class openresty::package {
     ]
   }
 
+  
   exec { 'openresty::package::download_luasocket':
     cwd     => '/tmp',
     command => 'wget ${openresty::params::luasocket_url} -O luasocket.tar.gz',
@@ -26,6 +28,7 @@ class openresty::package {
     ]
   }
 
+  
   exec { 'openresty::package::install_openresty':
     cwd     => '/tmp',
     command => "tar zxf openresty.tar.gz ; cd ngx_* ; ./configure --with-luajit ; make -j2 install",
@@ -40,7 +43,8 @@ class openresty::package {
     ],
   }
 
-  exec { 'openresty::package::install_luasocket':
+ 
+ exec { 'openresty::package::install_luasocket':
     cwd     => '/tmp',
     command => 'tar zxf openresty.tar.gz ; cd ngx_* ; ./configure --with-luajit ; make -j2 install',
     creates => '/usr/local/share/lua/5.1/socket',
